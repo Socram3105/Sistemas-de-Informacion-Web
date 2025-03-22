@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+@keyframes moveRight {
+  0% { transform: translateX(0); color: red; }
+  50% { color: white; }
+  100% { transform: translateX(100px); color: blue; }
+}
+.move-right {
+  animation: moveRight 1s linear;
+  display: inline-block;
+}
+body {
+  background-color: black; /* Fondo negro */
+  color: white; /* Color de texto por defecto blanco */
+}
+</style>
+</head>
+<body>
+<p class="move-right">El tereré es una bebida tradicional del Paraguay.</p>
+</body>
+</html>
