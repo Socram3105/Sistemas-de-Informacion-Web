@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Precio con IVA</title>
+</head>
+<body>
+    <h2>Calculadora de Precio con IVA</h2>
+    
+    <label for="precio">Ingrese el costo del producto:</label><br>
+    <input type="number" id="precio"><br><br>
+
+    <button onclick="calcularIVA()">Calcular</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcularIVA() {
+            var precio = document.getElementById("precio").value;
+
+            if (precio === "" || precio <= 0) {
+                alert("Ingrese un valor válido");
+                return;
+            }
+
+            var iva = (precio * 0.10);
+            var precioFinal =(parseInt(precio) + iva);
+
+            document.getElementById("resultado").innerText = 
+                precio + " + " + iva + " = " + precioFinal;
+        }
+    </script>
+</body>
+</html>

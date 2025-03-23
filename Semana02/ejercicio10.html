@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Diferencia de Fechas</title>
+</head>
+<body>
+    <h2>Calculadora de Diferencia entre Fechas</h2>
+
+    <form id="formulario">
+        <label for="fecha1">Ingrese la primera fecha (dd/mm/yyyy): </label><br>
+        <input type="text" id="fecha1" name="fecha1" placeholder="dd/mm/yyyy"><br><br>
+
+        <label for="fecha2">Ingrese la segunda fecha (dd/mm/yyyy): </label><br>
+        <input type="text" id="fecha2" name="fecha2" placeholder="dd/mm/yyyy"><br><br>
+
+        <button type="button" onclick="calcularDiferencia()">Calcular Diferencia</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        //Verificar el formato de la fecha
+        function validarFecha(fecha) {
+            var regex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+            return regex.test(fecha);
+        }
+
+        // Calcular la diferencia entre dos fechas
+        function calcularDiferencia() {
+            var fecha1 = document.getElementById("fecha1").value;
+            var fecha2 = document.getElementById("fecha2").value;
+
+            // Validar el formato de las fechas
+            if (!validarFecha(fecha1) || !validarFecha(fecha2)) {
+                alert("Por favor, ingrese las fechas en el formato correcto (dd/mm/yyyy).");
+                return;
+            }
+
+            // Convertir las fechas al formato Date para realizar el cálculo
+            var partesFecha1 = fecha1.split("/");
+            var partesFecha2 = fecha2.split("/");
+
+            var fecha1Obj = new Date(partesFecha1[2], partesFecha1[1] - 1, partesFecha1[0]);
+            var fecha2Obj = new Date(partesFecha2[2], partesFecha2[1] - 1, partesFecha2[0]);
+
+            // Verificar que la segunda fecha no sea anterior a la primera
+            if (fecha2Obj < fecha1Obj) {
+                alert("La segunda fecha no puede ser anterior a la primera.");
+                return;
+            }
+
+            // Calcular la diferencia en milisegundos
+            var diferenciaMS = fecha2Obj - fecha1Obj;
+
+            // Convertir la diferencia de milisegundos a días
+            var diferenciaDias = diferenciaMS / (1000 * 3600 * 24);
+
+            // Mostrar el resultado
+            document.getElementById("resultado").innerHTML = 
+                "La diferencia entre las fechas es de " + diferenciaDias + " días.";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Producto con IVA</title>
+</head>
+<body>
+  <h2>Calculadora de Producto con IVA</h2>
+  <form id="formulario">
+    <label for="montoConIVA">Ingrese monto con IVA: </label><br>
+    <input type="number" id="montoConIVA" name="montoConIVA"><br><br>
+    
+    <button type="button" onclick="calcular()">Enviar</button>
+  </form> 
+
+  <script>
+    // Función para calcular el valor sin IVA y el valor del IVA
+    function calcular() {
+      var montoConIVA = document.getElementById("montoConIVA").value;
+
+      if (montoConIVA == "" || montoConIVA <= 0) {
+        alert("Por favor, ingrese un monto válido.");
+        return;
+      }
+
+      var valorSinIVA = montoConIVA / 1.10; // Asumiendo un IVA del 10%
+      var valorIVA = montoConIVA - valorSinIVA;
+
+      alert("El valor del producto sin IVA es: " + valorSinIVA + "\n" + 
+            "El valor del IVA (10%) es: " + valorIVA);
+    }
+  </script>
+
+</body>
+</html>

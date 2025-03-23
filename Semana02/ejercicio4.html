@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenida Personalizada</title>
+</head>
+<body>
+    <h2>Ingrese sus datos</h2>
+    
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre"><br><br>
+
+    <label for="apellido">Apellido:</label><br>
+    <input type="text" id="apellido"><br><br>
+
+    <label for="edad">Edad:</label><br>
+    <input type="number" id="edad"><br><br>
+
+    <button onclick="mostrarMensaje()">Mostrar Bienvenida</button>
+
+    <p id="mensaje"></p>
+
+    <script>
+        function mostrarMensaje() {
+            var nombre = document.getElementById("nombre").value;
+            var apellido = document.getElementById("apellido").value;
+            var edad = document.getElementById("edad").value;
+
+            if (nombre === "" || apellido === "" || edad === "") {
+                alert("Por favor, complete todos los campos.");
+                return;
+            }
+
+            var mensaje = "¡Hola " + nombre + " " + apellido + "! Bienvenido/a. Tienes " + edad + " años.";
+            document.getElementById("mensaje").innerText = mensaje;
+        }
+    </script>
+</body>
+</html>

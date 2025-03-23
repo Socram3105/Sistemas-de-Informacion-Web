@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cálculo de Edad Futura</title>
+</head>
+<body>
+    <h2>Calcula tu edad en el futuro</h2>
+    
+    <label for="edad">Ingrese su edad actual:</label><br>
+    <input type="number" id="edad"><br><br>
+
+    <button onclick="calcularEdad()">Calcular</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcularEdad() {
+            var edad = document.getElementById("edad").value;
+
+            if (edad === "" || edad <= 0) {
+                alert("Por favor, ingrese una edad válida.");
+                return;
+            }
+
+            var edad5 = parseInt(edad) + 5;
+            var edad10 = parseInt(edad) + 10;
+            var edad100 = parseInt(edad) + 100;
+
+            alert ( "En 5 años tendrás: " + edad5 + " años.\n");
+            alert( "En 10 años tendrás: " + edad10 + " años.\n");
+            alert ( "En 100 años tendrás: " + edad100 + " años.");
+
+            document.getElementById("resultado").innerText = mensaje;
+        }
+    </script>
+</body>
+</html>
